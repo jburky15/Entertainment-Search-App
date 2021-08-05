@@ -1,2 +1,4 @@
 # Entertainment-Search-App
-In this app you can search Movies and TV shows and see their user rating and summary.
+A quick search for TV shows and Movies new and old at your fingertips<br>
+Look up your favorite Movies and TV shows, get a brief description and a user rating.<br>
+All ratings and descriptions are provided by The Movie Database API
