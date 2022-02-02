@@ -7,6 +7,7 @@ const search = document.getElementById("search")
 
 getShows(API_URL)
 
+//Get TV show info from the API
 async function getShows(url) {
     const res = await fetch(url)
     const data = await res.json()
@@ -14,6 +15,7 @@ async function getShows(url) {
     showTv(data.results)
 }
 
+//Add data from the API to the cards
 function showTv(tvShows) {
     main.innerHTML = ''
 
@@ -38,6 +40,7 @@ function showTv(tvShows) {
     })
 }
 
+//Change the rating based on average score
 function getClassByRate(vote) {
     if(vote >= 8) {
         return 'green'
@@ -48,6 +51,7 @@ function getClassByRate(vote) {
     }
 }
 
+//Search for TV shows
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
