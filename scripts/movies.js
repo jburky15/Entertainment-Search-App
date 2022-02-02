@@ -1,14 +1,13 @@
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=bc7ddc3d0727eb2b59564faf3ba59022'
 const IMAGE_PATH = 'https://image.tmdb.org/t/p/w1280'
 const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=bc7ddc3d0727eb2b59564faf3ba59022&query="'
-// const page = '1'
 const main = document.getElementById("main")
 const form = document.getElementById("form")
 const search = document.getElementById("search")
-// const loadButton = document.querySelectorAll("button.load-more")
 
 getMovies(API_URL)
 
+//Get movie data from the API
 async function getMovies(url) {
     const res = await fetch(url)
     const data = await res.json()
@@ -16,6 +15,7 @@ async function getMovies(url) {
     showMovies(data.results)
 }
 
+//Display the movie data to the cards
 function showMovies(movies) {
     main.innerHTML = ''
 
@@ -44,6 +44,7 @@ function showMovies(movies) {
     })
 }
 
+//Change the color of the rating based on average score
 function getClassByRate(vote) {
     if(vote >= 8) {
         return 'green'
@@ -54,6 +55,7 @@ function getClassByRate(vote) {
     }
 }
 
+//Search for movies
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -67,17 +69,3 @@ form.addEventListener('submit', (e) => {
         window.location.reload()
     }
 })
-
-/* Failed attempt at Pagination #3
-
-loadButton.addEventListener('click', () => {
-    getMovies(API_URL)
-    async function getMovies(url) {
-        const res = await fetch(url)
-        const data = await res.json(page++)
-    
-        showMovies(data.results)
-    }
-});*/
-
-// Add pagination
